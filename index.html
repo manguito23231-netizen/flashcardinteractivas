@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div id="data-entry">
+    <h2>📝 1. Ingresa tu Material de Estudio</h2>
+    <p>La lista de **Preguntas** (una por línea) debe coincidir en número con la lista de **Respuestas** (separadas por **-----**).</p>
+    <div class="input-group">
+        <textarea id="questions-input" placeholder="Pregunta 1 (Una línea por pregunta)&#10;Pregunta 2&#10;Pregunta 3..."></textarea>
+        <textarea id="answers-input" placeholder="Respuesta 1 (Puede tener múltiples líneas)&#10;----- (Separador obligatorio)&#10;Respuesta 2 (Puede tener múltiples líneas)&#10;-----&#10;Respuesta 3..."></textarea>
+    </div>
+    <button id="load-btn" class="btn load">Cargar Fichas (¡Empezar a Estudiar!)</button>
+    <p id="card-count" class="status-message-initial">0 fichas cargadas.</p>
+</div>
+
+<hr>
+
+<div id="study-area" style="display: none;">
+    <h2>🧠 2. Práctica</h2>
+
+    <div id="card-status-tracker">
+        <p id="current-card-display">Ficha 0 de 0</p>
+        <p id="score-display">✅ Aciertos: 0 | ❌ Errores: 0</p>
+    </div>
+
+    <button id="skip-btn" class="btn skip">➡️ Saltar Tiempo / Ver Respuesta</button>
+    
+    <div class="card-container">
+        <div class="flashcard">
+            <div class="card-face card-front">
+                <h2 id="card-question"></h2>
+                <p class="timer-display">Tiempo restante: <span id="timer">15</span>s</p>
+            </div>
+            <div class="card-face card-back">
+                <h2 id="card-answer"></h2>
+                
+                <div class="feedback-area">
+                    <h3>¿Acertaste?</h3>
+                    <button id="correct-btn" class="btn correct">✅ Correcto</button>
+                    <button id="incorrect-btn" class="btn incorrect">❌ Incorrecto</button>
+                </div>
+
+                <div id="feedback-retype-area" style="display: none;">
+                    <h3>¡Error! Practica y Avanza.</h3>
+                    <p>Reescribe la respuesta correcta (o un resumen) para fijar el conocimiento antes de seguir.</p>
+                    <textarea id="retype-answer" placeholder="Escribe aquí la respuesta correcta..."></textarea>
+                    <button id="continue-btn" class="btn load">Continuar con la Siguiente Ficha</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="status-message" id="status-message"></div>
+
+    <div id="end-screen-options" style="display: none;">
+        <h3>¡Repaso Terminado!</h3>
+        <p id="final-summary"></p> 
+        <button id="restart-set-btn" class="btn load">🔄 Repasar este Mazo de Nuevo</button>
+        <button id="new-set-btn" class="btn skip">📝 Cargar Nuevas Fichas (Empezar de Cero)</button>
+    </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
